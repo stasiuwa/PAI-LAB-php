@@ -6,7 +6,9 @@
     </head>
     <body>
         <?php
-            echo"<h2>chuj</h2>";
+            echo"<h2>Dzień dobry</h2>";
         ?>
+    <a href="galeria.php">GALERIA</a>
+    <a href="typy.php">TYPY</a>
     </body>
 </html>
