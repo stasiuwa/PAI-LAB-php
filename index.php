@@ -10,5 +10,6 @@
         ?>
     <a href="galeria.php">GALERIA</a>
     <a href="typy.php">TYPY</a>
+    <a href="form.html">FORMULARZ</a>
     </body>
 </html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <title>PAI LAB php</title>
+</head>
+<body>
+    <h2>FORMULARZ</h2>
+    <a href="index.php">STRONA GŁÓWNA</a>
+    <form method="post" action="handleForm.php">
+        <table>
+            <tr> <td>Nazwisko: </td>
+                <td><input name="name" size="30" id="nazwa"/><label for="nazwa"></label></td>
+                <td id="nazwa_error" class="czerwone"></td>
+            </tr>
+            <tr> <td>Wiek:</td>
+                <td><input name="age" size ="30" id="wiek"/><label for="wiek"></label></td>
+                <td id="wiek_error" class="czerwone"></td>
+            </tr>
+            <tr> <td>Państwo:</td>
+                <td><select name="country" id="kraj">
+                    <option value="pl" selected="selected">Polska</option>
+                    <option value="gb">Wielka Brytania</option>
+                </select><label for="kraj"></label>
+                </td>
+            </tr>
+            <tr> <td>Adres e-mail: </td>
+                <td><input name="email" size ="30" id="email"/><label for="email"></label></td>
+                <td id="email_error" class="czerwone"></td>
+            </tr>
+        </table>
+        <h4>Zamawiam tutorial z języka:</h4>
+        <p><input name="php" type="checkbox" id="php" value="php "/><label for="php">PHP</label>
+            <input name="c" type="checkbox" id="c" value="c "/><label for="c">C/C++</label>
+            <input name="java" type="checkbox" id="java" value="java "/><label for="java">Java</label>
+            <span id="produkt_error" class="czerwone"></span></p>
+        <h4>Sposób zapłaty:</h4>
+        <p><input name="payment" id="euro" type="radio" value="euro"/><label for="euro">eurocard</label>
+            <input name="payment" id="visa" type="radio" value= "visa"/><label for="visa">visa</label>
+            <input name="payment" id="przelew" type="radio" value="przelew"/><label for="przelew">przelew</label><br/>
+            <span id="zaplata_error" class="czerwone"></span><br>
+            <input type="submit" value=" Wyślij "/>
+            <input type="reset" value=" Anuluj "/></p>
+    </form>
+</body>
+</html>
