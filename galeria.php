@@ -5,6 +5,7 @@
     <title>PAI LAB php</title>
 </head>
     <body>
+    <h3><a href="index.php">powrót</a></h3>
         <?php
             //echo "<img src='src/thumbnails/obraz1.JPG' alt='obraz1' /><br/><br/>";
             function galery($rows, $cols) {
@@ -23,6 +24,5 @@
             }
             galery(3,3);
         ?>
-    <a href="index.php">STRONA GŁÓWNA</a>
     </body>
 </html>

@@ -6,7 +6,7 @@
 </head>
     <body>
     <br/><br/>
-    <a href="index.php">STRONA GŁÓWNA</a>
+    <h3><a href="index.php">powrót</a></h3>
     <?php
 //    $type1 = 1234;
 //    $type2 = 567.789;
