@@ -8,10 +8,11 @@
         <?php
             echo"<h2>Dzień dobry</h2>";
         ?>
-    <a href="galeria.php">GALERIA</a><br/>
-    <a href="typy.php">TYPY</a><br/>
-    <a href="form.html">FORMULARZ 2.1</a><br/>
-    <a href="form.php">FORMULARZ 2.2</a><br/>
-    <a href="form2.html">FORMULARZ 2.3</a><br/>
+    <a href="galeria.php">GALERIA</a><br/><br/>
+    <a href="typy.php">TYPY</a><br/><br/>
+    <a href="form.html">FORMULARZ 2.1</a><br/><br/>
+    <a href="form.php">FORMULARZ 2.2</a><br/><br/>
+    <a href="form2.html">FORMULARZ 2.3</a><br/><br/>
+    <a href="formFiles.php">FORMULARZ 3.1</a><br/>
     </body>
 </html>
