@@ -1,11 +1,17 @@
 <?php
-    function showData($name){
-        /**
-         * Bez sprawdzenia czy istnieje wartość o podanej nazwie ( isset() ) wywala błąd w przegladarce
-         *
-         */
+/**Funkcja wyświetlająca wartość określonego $name z tablicy globalnej GET
+ * @param $name string nazwa pola input formularza
+ * @return string wartość przyporządkowana nazwie
+ */
+    function showData(string $name): string
+    {
+
+         //Bez sprawdzenia czy istnieje wartość o podanej nazwie ( isset() ) wywala błąd w przegladarce
+
         if(isset($_GET[$name]) && ($_GET[$name]!="")) return htmlspecialchars(trim($_GET[$name]));
         else return "brak danych !";
+
+    //(isset($_GET[$name]) && ($_GET[$name]!="")) ? return htmlspecialchars(trim($_GET[$name])); : return "brak danych !"; czemu nie bangla?
     }
 ?>
 <div>
