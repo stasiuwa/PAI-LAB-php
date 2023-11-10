@@ -1,6 +1,6 @@
 <div>
     <h2>DANE Z FORMULARZA: zadanie 2.3</h2>
-    <h3><a href="form2.html">powrót</a></h3>
+    <h3><a href="../Forms/form2.html">powrót</a></h3>
     <?php
         $formDataCheckboxes = [
             'PHP' => 'php',

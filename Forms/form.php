@@ -1,11 +1,11 @@
 
 <div>
     <h2>FORMULARZ 2.2</h2>
-    <h3><a href="index.php">powrót</a></h3>
+    <h3><a href="../index.php">powrót</a></h3>
     <?php
         $langs = ['C', 'C++', 'Java', 'C#', 'HTML', 'CSS', 'XML', 'PHP', 'JavaScript'];
         echo
-        '<form method="post" action="handleForm2_2.php"><h4>Zamawiam tutorial z języka:</h4><p>';
+        '<form method="post" action="../FormHandlers/handleForm2_2.php"><h4>Zamawiam tutorial z języka:</h4><p>';
     /**
      *  Pętla do wyświetlenia checkboxów dla tablicy asocjacyjnej $langs
      */

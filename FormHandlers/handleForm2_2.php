@@ -1,6 +1,6 @@
 <div>
     <h2>DANE Z FORMULARZA: zadanie 2.2</h2>
-    <h3><a href="index.php">powrót</a></h3>
+    <h3><a href="../index.php">powrót</a></h3>
         <?php
         /**
          *  Weryfikajca czy z żądaniem HTTP przesłano dane

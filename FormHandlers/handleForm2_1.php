@@ -1,6 +1,6 @@
 <div>
     <h2>DANE Z FORMULARZA: </h2>
-    <h3><a href="index.php">powrót</a></h3>
+    <h3><a href="../index.php">powrót</a></h3>
     <?php
     /**
      * Tablica asocjacyjna do odebrania danych z formularza

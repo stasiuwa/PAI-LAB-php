@@ -26,27 +26,24 @@ if(isset($_POST['submit']) && $_POST['submit'] == 'submit' && !isset($_GET['pic'
             $newW = $width * $scale;
             $newH = $height * $scale;
 
-            header('Content-Type: image/jpeg');
+            //header('Content-Type: image/jpeg');
             $new = imagecreatetruecolor($newW, $newH);
             $picture = imagecreatefromjpeg($image);
+
             imagecopyresampled($new, $picture, 0, 0, 0, 0, $newW, $newH, $width, $height);
-            imagejpeg($new, './mini-' . $link, 100);
+            imagejpeg($new, './src/thumbnails/mini-' . $link, 100);
+            rename($link, "./src/img/" . $link);
 
             imagedestroy($new);
             imagedestroy($picture);
             unlink($image);
 
-            $len = strlen($link);
-            $len -= 4;
-            $link = substr($link, 0, $len);
-            header("location:images.php?pic=$link");
-
+            echo '<a href="imagesForm.html">Powrót</a><br/><img src="./src/thumbnails/mini-' . $link . '" alt="' . $link . '"/><br/>';
         }
     }
-}
-if(!empty($_GET['pic'])){
-        echo '<a href="' . $_GET['pic'] . '.jpg">Picture</a><br/>';
-        echo '<a href="mini-' . $_GET['pic'] . '.jpg">Miniature</a><br/><br/>';
-        echo '<a href="imagesForm.html">Return</a>';
+    else {
+        header('location:imagesForm.html');
     }
+}
+
 ?>
