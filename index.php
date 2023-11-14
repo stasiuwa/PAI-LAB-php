@@ -16,5 +16,6 @@
     <a href="Forms/formFiles.php">FORMULARZ 3.1</a><br/><br/>
     <a href="imagesForm.html">GALERIA 4.3</a><br/><br/>
     <a href="Forms/questionnaire.php">ANKIETA</a><br/><br/>
+    <a href="users.php">KLASY 5.2</a><br/><br/>
     </body>
 </html>

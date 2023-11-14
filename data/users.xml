@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+    <user>
+        <userName>admin</userName>
+        <passwd>admin</passwd>
+        <fullName>Administrator</fullName>
+        <email>admin@gmail.com</email>
+        <date>2018-09-10</date>
+        <status>2</status>
+    </user>
+    <user>
+        <userName>beatap</userName>
+        <passwd>beatap</passwd>
+        <fullName>Beata P.</fullName>
+        <email>beatap@gmail.com</email>
+        <date>2018-10-10</date>
+        <status>1</status>
+    </user>
+<user><userName>Jankao69PL</userName><email>s97765@pollub.edu.pl</email><date>2023-11-14</date></user><user><userName>Jankao69PL</userName><email>s97765@pollub.edu.pl</email><date>2023-11-14</date></user></users>

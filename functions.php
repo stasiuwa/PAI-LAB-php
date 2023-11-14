@@ -56,6 +56,10 @@
         flock($dataFile, LOCK_UN);
         fclose($dataFile);
     }
+
+/**Walidacja danych w formularzu
+ * @return void
+ */
     function validate(): void{
         global $dataPath;
         $args = [
@@ -68,7 +72,7 @@
             'payment' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
             'submit' => FILTER_SANITIZE_FULL_SPECIAL_CHARS
             ];
-        //filtracja danych z GET/POST zgodnie z $args
+        //filtracja danych z POST zgodnie z $args
         $data = filter_input_array(INPUT_POST,$args);
         //wyniki filtracji
         var_dump($data);
@@ -133,6 +137,11 @@
         ";
 
     }
+
+/**Dopisywanie ilości zamówionych tutoriali z kwestionariusza. Pobiera wartości z pliku, czyści go, dodaje
+ * te z aktualnego kwestionariusza i zapisuje od nowa
+ * @return void
+ */
     function sendQuestionnaireData(): void {
         global $questionnaireData;
         global $techs;
