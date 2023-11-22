@@ -21,7 +21,7 @@ include "./classes/RegistrationForm.php";
     </body>
 </html>
 <?php
-    $user1 = new User ('koxMati69PL', 'jp100pro', 'Kamil Zdun', 'kamilos@lol.xd');
+    $user1 = new User ('koxMati69PL', 'jdpro', 'Kamil Zdun', 'kamilos@lol.xd');
     $user2 = new User ('Vanessa', 'zasilekplus', 'Iwan Bohun', 'odindwa@tri.by');
     $form = new RegistrationForm();
     if(filter_input(INPUT_POST, 'submit', FILTER_SANITIZE_FULL_SPECIAL_CHARS)) {

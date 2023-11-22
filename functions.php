@@ -58,10 +58,10 @@
     }
 
 /**Walidacja danych w formularzu
- * @return void
+ * @return bool
  */
-    function validate(): void{
-        global $dataPath;
+    function validate(): bool{
+
         $args = [
             'surname' => [
                 'filter' => FILTER_VALIDATE_REGEXP,
@@ -84,14 +84,20 @@
             }
         }
         if ($errors === "") {
-            saveToFile($dataPath, $_POST);
+            return true;
         } else {
             echo "<br/>Niepoprawne dane: " . $errors;
+            return false;
         }
     }
     function saveData(): void{
+        global $dataPath;
         echo "<h3>Dodawnaie do pliku: </h3>";
-        validate();
+        if(validate()) {
+            saveToFile($dataPath, $_POST);
+        } else {
+            echo "<h2>DODAWANIE NIE POWIODLO SIE</h2>";
+        }
     }
     function saveToFile($fileName, $dataArray): void {
         $data = PHP_EOL;
@@ -168,4 +174,20 @@
         }
         show($questionnaireData);
     }
-?>
+    function addRecord($dataBase): void {
+        if (validate()) {
+            $sql =
+                "INSERT INTO klienci VALUES (NULL, '" .
+                $_POST['surname'] . "', " .
+                $_POST['age'] . ", '" .
+                //$_POST['country']
+                "Polska" . "', '" .
+                $_POST['email'] . "', '" .
+                //implode(",",$_POST['langs'])
+                "PHP" . "', '" .
+                $_POST['payment'] . "')";
+            $dataBase->insert($sql);
+        } else {
+            echo "<h3>DODAWANIE DO BAZY NIE POWIODLO SIE</h3>";
+        }
+    }
