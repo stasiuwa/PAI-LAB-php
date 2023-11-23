@@ -33,9 +33,11 @@
     function show($dataPath): void {
         $dataFile = fopen($dataPath, "r")or die("Nie udalo sie otworzyc pliku");
         flock($dataFile, LOCK_SH);
+        echo "<div>";
         while (($line = fgets($dataFile)) !== false) {
             echo $line . "<br/>";
         }
+        echo "</div>";
         flock($dataFile, LOCK_UN);
         fclose($dataFile);
     }
@@ -46,7 +48,7 @@
      */
     function showFiltered(string $tutorial): void {
         global $dataPath;
-        echo "<h4>$tutorial</h4>";
+        echo "<div><h4>$tutorial</h4>";
         //$tutorialPattern = preg_quote($tutorial);
         $dataFile = fopen($dataPath, "r")or die("Nie udalo sie otworzyc pliku");
         flock($dataFile, LOCK_SH);
@@ -55,6 +57,7 @@
             if(str_contains($line,$tutorial . ",")) echo $line . "<br/>"; //od PHP 8
             // if(strpos($lane,$tutorial) !== false ) echo $lane . "<br/>"; dla wersji < PHP 8
         }
+        echo "</div>";
         flock($dataFile, LOCK_UN);
         fclose($dataFile);
     }
@@ -77,7 +80,8 @@
         //filtracja danych z POST zgodnie z $args
         $data = filter_input_array(INPUT_POST,$args);
         //wyniki filtracji
-        var_dump($data);
+
+//        var_dump($data);
 
         $errors = "";
         foreach ($data as $key => $value) {
@@ -88,17 +92,18 @@
         if ($errors === "") {
             return true;
         } else {
-            echo "<br/>Niepoprawne dane: " . $errors;
+            echo "<div>Niepoprawne dane: " . $errors;
+            echo "</div>";
             return false;
         }
     }
     function saveData(): void{
         global $dataPath;
-        echo "<h3>Dodawnaie do pliku: </h3>";
+        echo "<h2>Dodawnaie do pliku: </h2>";
         if(validate()) {
             saveToFile($dataPath, $_POST);
         } else {
-            echo "<h2>DODAWANIE NIE POWIODLO SIE</h2>";
+            echo "<div>DODAWANIE NIE POWIODLO SIE</div>";
         }
     }
     function saveToFile($fileName, $dataArray): void {
@@ -176,7 +181,7 @@
         }
         show($questionnaireData);
     }
-    function addRecord($dataBase): void {
+    function addClientRecord($dataBase): void {
         if (validate()) {
             $sql =
                 "INSERT INTO klienci VALUES (NULL, '" .
@@ -188,6 +193,6 @@
                 $_POST['payment'] . "')";
             $dataBase->insert($sql);
         } else {
-            echo "<h3>DODAWANIE DO BAZY NIE POWIODLO SIE</h3>";
+            echo "<h4>DODAWANIE DO BAZY NIE POWIODLO SIE</h4>";
         }
     }

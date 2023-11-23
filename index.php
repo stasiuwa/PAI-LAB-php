@@ -3,20 +3,20 @@
     <head>
         <meta charset="UTF-8">
         <title>PAI LAB php</title>
+        <link rel="stylesheet" href="src/styles.css">
     </head>
     <body>
-        <?php
-            echo"<h2>Dzień dobry</h2>";
-        ?>
-    <a href="galeria.php">GALERIA</a><br/><br/>
-    <a href="typy.php">TYPY</a><br/><br/>
-    <a href="Forms/form.html">FORMULARZ 2.1</a><br/><br/>
-    <a href="Forms/form.php">FORMULARZ 2.2</a><br/><br/>
-    <a href="Forms/form2.html">FORMULARZ 2.3</a><br/><br/>
-    <a href="Forms/formFiles.php">FORMULARZ 3.1</a><br/><br/>
-    <a href="imagesForm.html">GALERIA 4.3</a><br/><br/>
-    <a href="Forms/questionnaire.php">ANKIETA</a><br/><br/>
-    <a href="users.php">KLASY 5.2</a><br/><br/>
-    <a href="Forms/dataBaseForm.php">FORMULARZ Z BAZĄ DANYCH 6.2</a><br/><br/>
+    <links>
+        <h1>Dzień dobry</h1>
+        <a href="galeria.php">GALERIA</a>
+        <a href="Forms/form.html">FORMULARZ 2.1</a>
+        <a href="Forms/form.php">FORMULARZ 2.2</a>
+        <a href="Forms/form2.html">FORMULARZ 2.3</a>
+        <a href="Forms/formFiles.php">FORMULARZ 3.1</a>
+        <a href="imagesForm.html">GALERIA 4.3</a>
+        <a href="Forms/questionnaire.php">ANKIETA</a>
+        <a href="Forms/dataBaseForm.php">FORMULARZ Z BAZĄ DANYCH 6.2</a>
+        <a href="users.php">UŻYTKOWNICY 7.2</a>
+    </links>
     </body>
 </html>

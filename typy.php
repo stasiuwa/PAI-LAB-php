@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>PAI LAB php</title>
+    <link rel="stylesheet" href="src/styles.css">
 </head>
     <body>
-    <br/><br/>
-    <h3><a href="index.php">powrót</a></h3>
+    <header>
+        <h2>TYPY</h2>
+        <h3><a href="index.php">powrót</a></h3>
+    </header>
     <?php
 //    $type1 = 1234;
 //    $type2 = 567.789;

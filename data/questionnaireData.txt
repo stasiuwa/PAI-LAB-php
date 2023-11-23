@@ -2,8 +2,8 @@ C:4
 CPP:2
 Java:6
 C#:3
-HTML:3
-CSS:3
-XML:4
-PHP:10
-JavaScript:7
+HTML:4
+CSS:5
+XML:5
+PHP:12
+JavaScript:8

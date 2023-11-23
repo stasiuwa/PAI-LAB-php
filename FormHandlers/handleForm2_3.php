@@ -1,6 +1,16 @@
-<div>
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <title>PAI LAB php</title>
+    <link rel="stylesheet" href="../src/styles.css">
+</head>
+<body>
+<header>
     <h2>DANE Z FORMULARZA: zadanie 2.3</h2>
     <h3><a href="../Forms/form2.html">powrót</a></h3>
+</header>
+<div>
     <?php
         $formDataCheckboxes = [
             'PHP' => 'php',
@@ -51,3 +61,5 @@
             <a href='client.php?surname=$surname&age=$age&country=$country&email=$email'>Dane klienta</a>"
     ?>
 </div>
+</body>
+</html>

@@ -1,7 +1,15 @@
-<div>
-    <h2>FORMULARZ Z BAZĄ DANYCH 6.2</h2>
-    <h3><a href="../index.php">powrót</a></h3>
-    <body>
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <title>PAI LAB php</title>
+    <link rel="stylesheet" href="../src/styles.css">
+</head>
+<body>
+    <header>
+        <h2>FORMULARZ Z BAZĄ DANYCH 6.2</h2>
+        <h3><a href="../index.php">powrót</a></h3>
+    </header>
     <form method="post" action="dataBaseForm.php"><h4>Zamawiam tutorial z języka:</h4><p>
         <table>
             <tr> <td>Nazwisko: </td>
@@ -51,7 +59,7 @@
             <input type="submit" name="submit" value="Java"/>
         </p>
     </form>
-    </body>
+
     <?php
     include_once "../classes/dataBaseMysqli.php";
     include_once "../classes/dataBasePDO.php";
@@ -62,7 +70,7 @@
     if (filter_input(INPUT_POST, "submit")) {
         $action = filter_input(INPUT_POST, "submit");
         switch ($action){
-            case "Zapisz": addRecord($dataBase); break;
+            case "Zapisz": addClientRecord($dataBase); break;
             case "Pokaz": echo $dataBase->select("SELECT * FROM klienci", ["Nazwisko", "Panstwo" ,"Email", "Zamowienie"]); break;
             case "PHP": echo $dataBase->select("SELECT * FROM klienci WHERE Zamowienie LIKE '%PHP%'", ["Nazwisko", "Email","Zamowienie"]); break;
             case "CPP": echo $dataBase->select("SELECT * FROM klienci WHERE Zamowienie LIKE '%CPP%'", ["Nazwisko", "Panstwo","Zamowienie"]); break;
@@ -72,4 +80,5 @@
         $_POST['submit'] = '';
     }
     ?>
-</div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+html {
+ height: 99%;
+ width: 99%;
+
+ display: flex;
+ justify-content: center;
+ align-items: center;
+
+ color: white;
+ background: linear-gradient(#043424, #002115);
+}
+body {
+ display: flex;
+ flex-flow: column;
+ align-items: center;
+
+ height: 100%;
+ width: 100%;
+}
+links {
+ display: flex;
+ flex-flow: column;
+
+ width: 40%;
+ height: 99%;
+ padding-top: 2%;
+
+ background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.1));
+}
+
+header {
+ text-align: center;
+
+ width: 100%;
+ padding: 0.01%;
+ border-radius: 10px;
+}
+footer {
+ background: black;
+ color: whitesmoke;
+ text-align: center;
+}
+
+links a {
+ text-decoration: none;
+ align-self: center;
+ text-align: center;
+
+ width: 90%;
+ font-size: 150%;
+ padding: 3% 1.5% 3% 1.5%;
+
+ color: whitesmoke;
+}
+links a:hover{
+  background: rgba(255,255,255, 0.2);
+}
+form {
+ padding: 1%;
+ font-size: 125%;
+ background: #e7e7e7;
+ color: black;
+ border-radius: 5%;
+ box-shadow: 5px 5px 15px 0 black;
+}
+
+table {
+}
+tbody {
+
+}
+th {
+ font-size: 125%;
+ color: yellow;
+}
+tr {
+
+ font-size: 110%;
+}
+td {
+
+}
+
+h1 {
+ font-size: 350%;
+ text-align: center;
+ color: wheat;
+}
+h2 {
+ color: #bfcbf5;
+ font-size: 250%;
+}
+h3 {
+ font-size: 150%;
+}
+h3 a {
+ color: ghostwhite;
+}
+h3 a:hover {
+ color: lightskyblue;
+}
+h4 {
+
+ padding: 0 5% 0 5%;
+ font-size: 125%;
+}
+h5 {
+ font-size: 150%;
+ text-align: center;
+}
+div {
+ margin-top: 0.5%;
+ padding: 0.5%;
+ border-radius: 5px;
+ box-shadow: 5px 5px 15px 0 black;
+ background: grey;
+ color: black;
+ font-size: 125%;
+}
+div a {
+ color: white;
+ font-size: 150%;
+}
+div p {
+
+}

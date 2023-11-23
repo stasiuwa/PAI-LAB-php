@@ -1,5 +1,18 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <title>PAI LAB php</title>
+    <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+<header>
+    <h2>Images</h2>
+    <h3><a href="index.php">strona główna</a></h3>
+</header>
+
+
 <?php
-echo '<h1>Images</h1>';
 if(isset($_POST['submit']) && $_POST['submit'] == 'submit' && !isset($_GET['pic'])){
     if(is_uploaded_file($_FILES['image']['tmp_name'])){
         $type = $_FILES['image']['type'];
@@ -47,3 +60,5 @@ if(isset($_POST['submit']) && $_POST['submit'] == 'submit' && !isset($_GET['pic'
 }
 
 ?>
+</body>
+</html>

@@ -2,8 +2,7 @@
 
 namespace classes;
 
-class dataBaseMysqli
-{
+class dataBaseMysqli {
     private $mysqli;
     public function __construct($server, $user, $pass, $dataBase){
         $this->mysqli = new \mysqli($server, $user, $pass, $dataBase);

@@ -1,7 +1,16 @@
-
-<div>
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <title>PAI LAB php</title>
+    <link rel="stylesheet" href="../src/styles.css">
+</head>
+<header>
     <h2>FORMULARZ 2.2</h2>
     <h3><a href="../index.php">powrót</a></h3>
+</header>
+<body>
+
     <?php
         $langs = ['C', 'C++', 'Java', 'C#', 'HTML', 'CSS', 'XML', 'PHP', 'JavaScript'];
         echo
@@ -23,4 +32,6 @@
                 <input type="reset" value=" Anuluj "/></p>
         </form>';
     ?>
-</div>
+
+</body>
+</html>

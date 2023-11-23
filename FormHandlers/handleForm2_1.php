@@ -1,6 +1,16 @@
-<div>
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <title>PAI LAB php</title>
+    <link rel="stylesheet" href="../src/styles.css">
+</head>
+<body>
+<header>
     <h2>DANE Z FORMULARZA: </h2>
     <h3><a href="../index.php">powrót</a></h3>
+</header>
+<div>
     <?php
     /**
      * Tablica asocjacyjna do odebrania danych z formularza
@@ -55,3 +65,5 @@
         echo "</p>";
     ?>
 </div>
+</body>
+</html>

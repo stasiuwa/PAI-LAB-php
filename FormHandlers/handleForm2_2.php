@@ -1,6 +1,16 @@
-<div>
-    <h2>DANE Z FORMULARZA: zadanie 2.2</h2>
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <title>PAI LAB php</title>
+    <link rel="stylesheet" href="../src/styles.css">
+</head>
+<body>
+<header>
+    <h2>DANE Z FORMULARZA 2.2: </h2>
     <h3><a href="../index.php">powrót</a></h3>
+</header>
+<div>
         <?php
         /**
          *  Weryfikajca czy z żądaniem HTTP przesłano dane
@@ -20,7 +30,8 @@
                 echo "</p><p> var_dump()<br/>";
                 foreach ($_REQUEST['langs'] as $key => $value) echo "$key = $value \t" . var_dump($value) . "<br/>";
                 echo "</p>";
-            } else echo "<h4> ! nie przesłano danych !</h4>"
+            } else echo "<h5> ! nie przesłano danych !</h5>"
         ?>
-
 </div>
+</body>
+</html>

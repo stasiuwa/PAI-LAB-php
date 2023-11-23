@@ -13,9 +13,8 @@ class RegistrationForm
     public function __construct()
     { // action=users.php błąd o złej sciezce zignorowac poniewaz formularz jest wywolywany "z perspektywy" users.php
         echo <<<_END
-            <div>
-                <h3>REJESTRACJA UŻYTKOWNIKA</h3>
-                <form method="post" action="users.php" >                   
+                <form method="post" action="users.php" >   
+                <h3>REJESTRACJA UŻYTKOWNIKA</h3>                
                     <table>
                         <tr>
                             <td><label for="username">Nazwa użytkownika: </label></td>
@@ -39,7 +38,6 @@ class RegistrationForm
                         <input type="reset" name="submit" value="Anuluj">                     
                     </tr>
                 </form>
-            </div>
         _END;
 
     }
@@ -67,7 +65,7 @@ class RegistrationForm
         ];
         //filtracja danych z POST zgodnie z $args
         $data = filter_input_array(INPUT_POST, $args);
-        var_dump($data);
+//        var_dump($data);
         $errors = "";
 
         foreach ($data as $key => $value) {
@@ -78,7 +76,7 @@ class RegistrationForm
         if ($errors === "") {
             $this->user = new User($data['username'], $data['password'], $data['fullname'], $data['email']);
         } else {
-            echo "<br/>Niepoprawne dane: " . $errors;
+            echo "<div>Niepoprawne dane: " . $errors . "</div>";
             $this->user = null;
         }
         return $this->user;

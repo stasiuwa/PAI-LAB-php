@@ -25,22 +25,25 @@ class User
         $this->fullname = $fullname;
         $this->email = $email;
         $date = new \DateTime('now');
-        $this->date = $date->format('Y-m-d');
+        $this->date = $date->format('Y-m-d H:i:s');
     }
 
     function show(): void {
         //$date = $this->getDate()->format('Y-m-d');
         echo <<<_END
+            <div>
             Nazwa użytkownika: $this->username<br/>
             Hasło: $this->password<br/>
             Imie i nazwisko: $this->fullname<br/>
             Adres e-mail: $this->email<br/>
             Data utworzenia konta: $this->date<br/>
             Status: $this->status<br/>
+            </div>
         _END;
     }
     static function getAllUsersFromJSON($file): void {
         $allUsers = json_decode(file_get_contents($file));
+        echo "<div>";
         foreach ($allUsers as $value) {
             echo <<< _END
                 <p>$value->username<br/>
@@ -48,6 +51,7 @@ class User
                 $value->date</p>
             _END;
         }
+        echo "</div>";
     }
     static function getAllUsersFromXML($path): void { //ścieżka do pliku relatywna wobec wywołania w users.php
         $file = simplexml_load_file($path);
@@ -87,10 +91,22 @@ class User
     }
     //LAB 7
     function saveToDataBase($dataBase): void {
-
+        if (true) {
+            $sql =
+                "INSERT INTO users VALUES (NULL, '" .
+                $this->username . "', '" .
+                $this->fullname . "', '" .
+                $this->email . "', '" .
+                $this->password . "', '" .
+                $this->status . "', '" .
+                $this->date . "')";
+            $dataBase->insert($sql);
+        } else {
+            echo "<h2>DODAWANIE DO BAZY NIE POWIODLO SIE</h2>";
+        }
     }
-    static function getAllUsersFromDataBase($dataBase): void {
-        $dataBase->select("SELECT * FROM users",["username","date"]);
+    static function getAllUsersFromDataBase($dataBase): string {
+        return $dataBase->select('SELECT username, date FROM users' ,["username", "date"]);
     }
 
 }

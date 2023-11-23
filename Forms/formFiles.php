@@ -1,8 +1,16 @@
-
-<div>
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <title>PAI LAB php</title>
+    <link rel="stylesheet" href="../src/styles.css">
+</head>
+<body>
+<header>
     <h2>FORMULARZ 3.1</h2>
     <h3><a href="../index.php">powrót</a></h3>
-    <body>
+</header>
+
         <form method="post" action="formFiles.php"><h4>Zamawiam tutorial z języka:</h4><p>
             <table>
                 <tr> <td>Nazwisko: </td>
@@ -49,7 +57,6 @@
                 <input type="submit" name="submit" value="Java"/>
                 <input type="submit" name="submit" value="Statystyki"/></p>
         </form>
-    </body>
     <?php
     global $dataPath;
     include_once "../functions.php";
@@ -67,4 +74,5 @@
             $_POST['submit'] = '';
         }
     ?>
-</div>
+</body>
+</html>
