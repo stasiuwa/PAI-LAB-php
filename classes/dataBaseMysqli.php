@@ -25,7 +25,11 @@ class dataBaseMysqli
     public function select($sql, $fields): string {
         $text="";
         if ($result=$this->mysqli->query($sql)){
-            $text.="<table><tbody>";
+            $text.="<table><tbody><tr>";
+            foreach ($fields as $field) {
+                $text .="<th> $field </th>";
+            }
+            $text .= "</tr>";
             while ($row = $result->fetch_object()){
                 // pętla obraca dopóki jest zwracana wartość z fetch_object() - wiersze z tabeli
                 $text .= "<tr>";
@@ -41,8 +45,12 @@ class dataBaseMysqli
         return $text;
     }
     public function insert($sql){
-        if( $this->mysqli->query($sql)) echo "<h4>DODANO DO BAZY DANYCH</h4>"; else echo "<h4>NIE DODANO DO BAZY DANYCH</h4>";
+        if( $this->mysqli->query($sql)) echo "<h4>DODANO REKORD DO BAZY DANYCH</h4>"; else echo "<h4>NIE UDALO SIE DODAC REKORDU DO BAZY DANYCH</h4>";
     }
+    public function delete($sql){
+        if( $this->mysqli->query($sql)) echo "<h4>USUNIETO REKORD Z BAZY DANYCH</h4>"; else echo "<h4>NIE UDALO SIE USUNAC REKORDU Z BAZY DANYCH</h4>";
+    }
+
     public function getMysqli(): \mysqli { return $this->mysqli; }
 
 }

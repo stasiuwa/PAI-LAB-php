@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="pai-lab-mysql" uuid="76541e92-6560-4318-ab0f-fc7c714e4043">
+    <data-source source="LOCAL" name="@localhost" uuid="9097eeb8-0d9e-45c2-a463-eaba25d97641">
       <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>

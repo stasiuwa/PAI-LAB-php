@@ -56,14 +56,14 @@
     include_once "../classes/dataBaseMysqli.php";
     include_once "../classes/dataBasePDO.php";
     include_once "../functions.php";
-    $dbName = "clients";
-    $dataBase = new \classes\dataBaseMysqli("localhost", "milit", "123", $dbName);
-//    $dataBase = new \classes\dataBasePDO("mysql:dbname=clients;host=127.0.0.1", "milit", "123");
+
+    $dataBase = new \classes\dataBaseMysqli("localhost", "milit", "123", "phpmyadmin");
+//    $dataBase = new \classes\dataBasePDO("mysql:dbname=phpmyadmin;host=127.0.0.1", "milit", "123");
     if (filter_input(INPUT_POST, "submit")){
         $action = filter_input(INPUT_POST, "submit");
         switch ($action){
             case "Zapisz": addRecord($dataBase); break;
-            case "Pokaz": echo $dataBase->select("SELECT * FROM klienci" , ["Nazwisko", "Email", "Zamowienie"]); break;
+            case "Pokaz": echo $dataBase->select("SELECT * FROM klienci", ["Nazwisko", "Email", "Zamowienie"]); break;
             case "PHP": echo $dataBase->select("SELECT Nazwisko, Zamowienie FROM klienci WHERE Zamowienie='PHP'", ["Nazwisko","Zamowienie"]); break;
             case "CPP": echo $dataBase->select("SELECT Nazwisko, Zamowienie FROM klienci WHERE Zamowienie='CPP'", ["Nazwisko","Zamowienie"]); break;
             case "Java": echo $dataBase->select("SELECT Nazwisko, Zamowienie FROM klienci WHERE Zamowienie='Java'", ["Nazwisko","Zamowienie"]); break;

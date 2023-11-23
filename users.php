@@ -3,7 +3,11 @@ use classes\User, classes\RegistrationForm;
 
 include "./classes/User.php";
 include "./classes/RegistrationForm.php";
+include "./classes/dataBaseMysqli.php";
+
+$dataBase = new \classes\dataBaseMysqli("localhost", "milit", "123", "phpmyadmin");
 ?>
+
 <!DOCTYPE html>
 <html lang="pl-PL">
 <head>
@@ -14,8 +18,12 @@ include "./classes/RegistrationForm.php";
         <h3><a href="index.php">powrót</a></h3>
         <div><h4>UŻYTKOWNICY</h4>
             <?php
-//                User::getAllUsersFromJSON("./data/users.json");
-                User::getAllUsersFromXML();
+                echo "<h5>JSON</h5>";
+                User::getAllUsersFromJSON("./data/users.json");
+                echo "<h5>XML</h5>";
+                User::getAllUsersFromXML("./data/users.xml");
+                echo "<h5>Baza danych</h5>";
+                User::getAllUsersFromDataBase($dataBase);
             ?>
         </div>
     </body>

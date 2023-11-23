@@ -2,12 +2,13 @@
 
 namespace classes;
 
+include_once "dataBaseMysqli.php";
 class User
 {
     const STATUS_USER = 1, STATUS_ADMIN=2;
-    protected string $username, $password, $fullname, $email;
+    protected string $username, $password, $fullname, $email, $date;
     protected int $status;
-    protected \DateTime $date;
+    //protected \DateTime $date;
 
     /**
      * @param $username string nazwa użytkownika
@@ -23,18 +24,18 @@ class User
         $this->password = password_hash($password, PASSWORD_DEFAULT);
         $this->fullname = $fullname;
         $this->email = $email;
-
-        $this->date = new \DateTime('now');
+        $date = new \DateTime('now');
+        $this->date = $date->format('Y-m-d');
     }
 
     function show(): void {
-        $date = $this->getDate()->format('Y-m-d');
+        //$date = $this->getDate()->format('Y-m-d');
         echo <<<_END
             Nazwa użytkownika: $this->username<br/>
             Hasło: $this->password<br/>
             Imie i nazwisko: $this->fullname<br/>
             Adres e-mail: $this->email<br/>
-            Data utworzenia konta: $date<br/>
+            Data utworzenia konta: $this->date<br/>
             Status: $this->status<br/>
         _END;
     }
@@ -48,10 +49,10 @@ class User
             _END;
         }
     }
-    static function getAllUsersFromXML(): void { //ścieżka do pliku relatywna wobec wywołania w users.php
-        $allUsers = simplexml_load_file('data/users.xml');
+    static function getAllUsersFromXML($path): void { //ścieżka do pliku relatywna wobec wywołania w users.php
+        $file = simplexml_load_file($path);
         echo "<ul>";
-        foreach ($allUsers as $user):
+        foreach ($file as $user):
             $userName=$user->userName;
             $date=$user->date;
             echo "<li>$userName, $date, itd... </li>";
@@ -64,7 +65,7 @@ class User
             "password" => $this->password,
             "fullname" => $this->fullname,
             "email" => $this->email,
-            "date" => $this->date->format('Y-m-d'),
+            "date" => $this->date,  //->format('Y-m-d'),
             "status" => $this->status
         ];
     }
@@ -80,69 +81,16 @@ class User
         $xmlCopy = $xml->addChild("user");
         $xmlCopy->addChild("userName", $this->username);
         $xmlCopy->addChild("email", $this->email);
-        $xmlCopy->addChild("date", $this->date->format('Y-m-d'));
+        $xmlCopy->addChild("date", $this->date);    //->format('Y-m-d'));
         $xml->asXML($path);
 
     }
-    public function getUserName(): string
-    {
-        return $this->username;
-    }
+    //LAB 7
+    function saveToDataBase($dataBase): void {
 
-    public function setUserName(string $username): void
-    {
-        $this->username = $username;
     }
-
-    public function getPassword(): string
-    {
-        return $this->password;
+    static function getAllUsersFromDataBase($dataBase): void {
+        $dataBase->select("SELECT * FROM users",["username","date"]);
     }
-
-    public function setPassword(string $password): void
-    {
-        $this->password = $password;
-    }
-
-    public function getFullName(): string
-    {
-        return $this->fullname;
-    }
-
-    public function setFullName(string $fullname): void
-    {
-        $this->fullname = $fullname;
-    }
-
-    public function getEmail(): string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): void
-    {
-        $this->email = $email;
-    }
-
-    public function getDate(): \DateTime
-    {
-        return $this->date;
-    }
-
-    public function setDate(\DateTime $date): void
-    {
-        $this->date = $date;
-    }
-
-    public function getStatus(): int
-    {
-        return $this->status;
-    }
-
-    public function setStatus(int $status): void
-    {
-        $this->status = $status;
-    }
-
 
 }

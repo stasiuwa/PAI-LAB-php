@@ -50,8 +50,6 @@ class RegistrationForm
      */
 
     function checkUser(): User {
-
-        $check = false;
         $args = [
             'username' =>  [
                 'filter' => FILTER_VALIDATE_REGEXP,
