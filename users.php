@@ -10,6 +10,7 @@
         <h2>UŻYTKOWNICY 7.2</h2>
         <h3><a href="index.php">powrót</a></h3>
     </header>
+
 <?php
 include_once "classes/dataBaseMysqli.php";
 include_once "classes/RegistrationForm.php";
