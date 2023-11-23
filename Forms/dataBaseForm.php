@@ -40,8 +40,8 @@
         <h4>Sposób zapłaty:</h4>
         <p>
             <input name="payment" id="card" type="radio" value="Master Card"/><label for="card">Master Card</label>
-            <input name="payment" id="visa" type="radio" value= "Visa"/><label for="Visa">visa</label>
-            <input name="payment" id="przelew" type="radio" value="Przelew"/><label for="Przelew">przelew</label><br/>
+            <input name="payment" id="visa" type="radio" value= "Visa"/><label for="visa">Visa</label>
+            <input name="payment" id="przelew" type="radio" value="Przelew"/><label for="przelew">Przelew</label><br/>
             <span id="zaplata_error" class="czerwone"></span><br>
             <input type="reset" value="Wyczyść"/>
             <input type="submit" name="submit" value="Zapisz"/>
