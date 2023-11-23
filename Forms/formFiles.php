@@ -31,9 +31,9 @@
                 */
                 $langs = ['C', 'C++', 'Java', 'C#', 'HTML', 'CSS', 'XML', 'PHP', 'JavaScript'];
                 foreach ($langs as $value) {
-                echo '<input name="langs[' . $value . ']" type="checkbox" id="' . $value. '"
-                             value="' . $value  . '"/><label for="' . $value . '">' . $value . '</label>    ';
-                }
+                    echo '<input name="langs[' . $value . ']" type="checkbox" id="' . $value. '"
+                                 value="' . $value  . '"/><label for="' . $value . '">' . $value . '</label>    ';
+                    }
                 ?>
             <span id="produkt_error" class="czerwone"></span></p>
             <h4>Sposób zapłaty:</h4>

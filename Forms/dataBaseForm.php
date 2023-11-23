@@ -28,11 +28,11 @@
         </table><p>
             <?php
             /**
-             *  Pętla do wyświetlenia checkboxów dla tablicy asocjacyjnej $langs
+             *  Pętla do wyświetlenia checkboxów w formularzu dla tablicy asocjacyjnej $langs
              */
             $langs = ['CPP', 'Java', 'PHP'];
             foreach ($langs as $value) {
-                echo '<input name="langs[' . $value . ']" type="radio" id="' . $value. '"
+                echo '<input name="langs[' . $value . ']" type="checkbox" id="' . $value. '"
                              value="' . $value  . '"/><label for="' . $value . '">' . $value . '</label>    ';
             }
             ?>
@@ -40,8 +40,8 @@
         <h4>Sposób zapłaty:</h4>
         <p>
             <input name="payment" id="card" type="radio" value="Master Card"/><label for="card">Master Card</label>
-            <input name="payment" id="visa" type="radio" value= "Visa"/><label for="visa">visa</label>
-            <input name="payment" id="przelew" type="radio" value="Przelew"/><label for="przelew">przelew</label><br/>
+            <input name="payment" id="visa" type="radio" value= "Visa"/><label for="Visa">visa</label>
+            <input name="payment" id="przelew" type="radio" value="Przelew"/><label for="Przelew">przelew</label><br/>
             <span id="zaplata_error" class="czerwone"></span><br>
             <input type="reset" value="Wyczyść"/>
             <input type="submit" name="submit" value="Zapisz"/>
@@ -57,17 +57,17 @@
     include_once "../classes/dataBasePDO.php";
     include_once "../functions.php";
 
-    $dataBase = new \classes\dataBaseMysqli("localhost", "milit", "123", "phpmyadmin");
-//    $dataBase = new \classes\dataBasePDO("mysql:dbname=phpmyadmin;host=127.0.0.1", "milit", "123");
-    if (filter_input(INPUT_POST, "submit")){
+    $dataBase = new \classes\dataBaseMysqli("localhost", "root", "", "97765");
+//    $dataBase = new \classes\dataBasePDO("mysql:dbname=97765;host=127.0.0.1", "root", "");
+    if (filter_input(INPUT_POST, "submit")) {
         $action = filter_input(INPUT_POST, "submit");
         switch ($action){
             case "Zapisz": addRecord($dataBase); break;
-            case "Pokaz": echo $dataBase->select("SELECT * FROM klienci", ["Nazwisko", "Email", "Zamowienie"]); break;
-            case "PHP": echo $dataBase->select("SELECT Nazwisko, Zamowienie FROM klienci WHERE Zamowienie='PHP'", ["Nazwisko","Zamowienie"]); break;
-            case "CPP": echo $dataBase->select("SELECT Nazwisko, Zamowienie FROM klienci WHERE Zamowienie='CPP'", ["Nazwisko","Zamowienie"]); break;
-            case "Java": echo $dataBase->select("SELECT Nazwisko, Zamowienie FROM klienci WHERE Zamowienie='Java'", ["Nazwisko","Zamowienie"]); break;
-            default: echo "<p>error ? ? ? ?! !</p>";
+            case "Pokaz": echo $dataBase->select("SELECT * FROM klienci", ["Nazwisko", "Panstwo" ,"Email", "Zamowienie"]); break;
+            case "PHP": echo $dataBase->select("SELECT * FROM klienci WHERE Zamowienie LIKE '%PHP%'", ["Nazwisko", "Email","Zamowienie"]); break;
+            case "CPP": echo $dataBase->select("SELECT * FROM klienci WHERE Zamowienie LIKE '%CPP%'", ["Nazwisko", "Panstwo","Zamowienie"]); break;
+            case "Java": echo $dataBase->select("SELECT * FROM klienci WHERE Zamowienie LIKE '%Java%'", ["Nazwisko", "Platnosc","Zamowienie"]); break;
+            default: echo "<script>alert('Niepoprawa opcja z przycisku!')</script>";
         }
         $_POST['submit'] = '';
     }

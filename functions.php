@@ -25,7 +25,9 @@
         fclose($dataFile);
     }
 
-    /**Funkcja wyświetlająca całosć danych z pliku data.txt
+    /**
+     * Funkcja wyświetlająca całosć danych z pliku data.txt
+     * @param $dataPath string ścieżka do pliku
      * @return void
      */
     function show($dataPath): void {
@@ -180,11 +182,9 @@
                 "INSERT INTO klienci VALUES (NULL, '" .
                 $_POST['surname'] . "', " .
                 $_POST['age'] . ", '" .
-                //$_POST['country']
-                "Polska" . "', '" .
+                $_POST['country'] . "', '" .
                 $_POST['email'] . "', '" .
-                //implode(",",$_POST['langs'])
-                "PHP" . "', '" .
+                implode(",",$_POST['langs']) . "', '" .
                 $_POST['payment'] . "')";
             $dataBase->insert($sql);
         } else {

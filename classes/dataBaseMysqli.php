@@ -19,7 +19,7 @@ class dataBaseMysqli
 
     /**Funkcja zwracająca wszystkie rekordy z tabeli bazy danych z określonych pól w tabeli
      * @param $sql string zapytanie SQL do bazy
-     * @param $fields array nazwy pól w bazie danych
+     * @param $fields array nazwy pól w bazie danych ( kolejność nie musi byc taka jak kolumn w bazie danych)
      * @return string
      */
     public function select($sql, $fields): string {
