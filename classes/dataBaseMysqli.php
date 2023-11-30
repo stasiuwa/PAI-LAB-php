@@ -21,33 +21,48 @@ class dataBaseMysqli {
      * @param $fields array nazwy pól w bazie danych ( kolejność nie musi byc taka jak kolumn w bazie danych)
      * @return string
      */
-    public function select($sql, $fields): string {
-        $text="";
-        if ($result=$this->mysqli->query($sql)){
-            $text.="<table><tbody><tr>";
-            foreach ($fields as $field) {
-                $text .="<th> $field </th>";
-            }
-            $text .= "</tr>";
-            while ($row = $result->fetch_object()){
-                // pętla obraca dopóki jest zwracana wartość z fetch_object() - wiersze z tabeli
-                $text .= "<tr>";
-                for ($i=0; $i<count($fields); $i++){
-                    $f = $fields[$i];
-                    $text .= "<td>" . $row->$f . "</td>";
+    public function select($sql, $params): string{
+        $html = "";
+        if($result = $this->mysqli->query($sql)){
+            $count = count($params);
+            while($row = $result->fetch_object()){
+                $field = $params[0];
+                $id = $row->$field;
+                $html .= "<tr>";
+                for($i=0; $i<$count; $i++){
+                    $field = $params[$i];
+                    $html .= "<td>" . $row->$field . "</td>";
                 }
-                $text .= "</tr>";
+                $html .= "<td><form action='users.php' method='post'>" .
+                    "<input type='hidden' name='id' value='$id'>" .
+                    "<input type='submit' name='submit' value='delete'>" .
+                    "</form></td>";
+                $html .= "</tr>";
             }
-            $text .= "</tbody></table>";
+            $html .= "</tbody></table>";
             $result->close();
         }
-        return $text;
+
+        return $html;
     }
-    public function insert($sql){
-        if( $this->mysqli->query($sql)) echo "<h4>DODANO REKORD DO BAZY DANYCH</h4>"; else echo "<h4>NIE UDALO SIE DODAC REKORDU DO BAZY DANYCH</h4>";
+    public function insert($sql): bool{
+        if( $this->mysqli->query($sql)) {
+            echo "<h4>DODANO REKORD DO BAZY DANYCH</h4>";
+            return true;
+        }
+        else {
+            echo "<h4>NIE UDALO SIE DODAC REKORDU DO BAZY DANYCH</h4>";
+            return false;
+        }
     }
-    public function delete($sql){
-        if( $this->mysqli->query($sql)) echo "<h4>USUNIETO REKORD Z BAZY DANYCH</h4>"; else echo "<h4>NIE UDALO SIE USUNAC REKORDU Z BAZY DANYCH</h4>";
+    public function delete(string $table, string $condition, string $value): bool{
+        $sql = "DELETE FROM " .  $table . " WHERE " . $condition . "=" . $value . ";";
+        if($this->mysqli->query($sql)) return true; else return false;
+    }
+
+    public function update(string $table, string $column, string $new_value, string $condition, string $value): bool{
+        $sql = "UPDATE $table SET $column='$new_value' WHERE $condition='$value'";
+        if($this->mysqli->query($sql)) return true; else return false;
     }
 
     public function getMysqli(): \mysqli { return $this->mysqli; }

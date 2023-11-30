@@ -20,14 +20,35 @@ include_once "classes/User.php";
     $form = new classes\RegistrationForm();
 
     if(filter_input(INPUT_POST, 'submit', FILTER_SANITIZE_FULL_SPECIAL_CHARS)) {
-        $user = $form->checkUser();
-        if($user === null) echo "<div>Niepoprawne dane rejestracji!</div>";
-        else {
-            echo "<script>alert('ZAREJESTROWANO UŻYTKOWNIKA')</script>";
-            $user->show();
-            $user->saveToDataBase($dataBase);
-            echo "<div><h4>baza użytkowników</h4>" . classes\User::getAllUsersFromDataBase($dataBase) . "</div>";
-
+        switch ($_POST['submit']){
+            case 'register':
+                $user=$form->checkUser();
+                if($user === null) echo "<div>Niepoprawne dane rejestracji!</div>";
+                else {
+                    echo "<script>alert('ZAREJESTROWANO UŻYTKOWNIKA')</script>";
+                    $user->saveToDataBase($dataBase);
+                }
+                break;
+            case 'show':
+                echo classes\User::getAllUsersFromDataBase($dataBase);
+                break;
+            case 'delete':
+                if(filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT)){
+                    $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+                    if($dataBase->delete("users", "Id", $id)){
+                        echo "<h2>Użytkownik został usunięty</h2><br>";
+                    } else {
+                        echo "<div>Wystąpił błąd podczas usuwania użytkownika</div><br>";
+                    }
+                    echo  classes\User::getAllUsersFromDataBase($dataBase) ;
+                } else {
+                    echo "<h2>Niepoprawne id uzytkownika!</h2>";
+                }
+                break;
+            case 'clear':
+                break;
+            default:
+                echo "Nieprawidłowe dane";
         }
     }
 ?>

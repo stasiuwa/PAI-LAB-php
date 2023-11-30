@@ -34,8 +34,9 @@ class RegistrationForm
                         </tr>                       
                     </table>
                     <tr>
-                        <input type="submit" name="submit" value="Zarejestruj się">
-                        <input type="reset" name="submit" value="Anuluj">                     
+                        <input type="submit" name="submit" value="register">
+                        <input type="reset" name="submit" value="clear">                     
+                        <input type="submit" name="submit" value="show">                     
                     </tr>
                 </form>
         _END;

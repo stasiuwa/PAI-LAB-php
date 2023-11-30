@@ -75,6 +75,19 @@
             case "PHP": echo $dataBase->select("SELECT * FROM klienci WHERE Zamowienie LIKE '%PHP%'", ["Nazwisko", "Email","Zamowienie"]); break;
             case "CPP": echo $dataBase->select("SELECT * FROM klienci WHERE Zamowienie LIKE '%CPP%'", ["Nazwisko", "Panstwo","Zamowienie"]); break;
             case "Java": echo $dataBase->select("SELECT * FROM klienci WHERE Zamowienie LIKE '%Java%'", ["Nazwisko", "Platnosc","Zamowienie"]); break;
+            case 'delete':
+                if(filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT)){
+                    $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+                    if($dataBase->delete("klienci", "Id", $id)){
+                        echo "<h2>Użytkownik został usunięty</h2><br>";
+                    } else {
+                        echo "<div>Wystąpił błąd podczas usuwania użytkownika</div><br>";
+                    }
+                    echo  $dataBase->select("SELECT * FROM klienci", ["Nazwisko", "Panstwo" ,"Email", "Zamowienie"]);
+                } else {
+                    echo "<h2>Niepoprawne id uzytkownika!</h2>";
+                }
+                break;
             default: echo "<script>alert('Niepoprawa opcja z przycisku!')</script>";
         }
         $_POST['submit'] = '';

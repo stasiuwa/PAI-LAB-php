@@ -106,7 +106,17 @@ class User
         }
     }
     static function getAllUsersFromDataBase($dataBase): string {
-        return $dataBase->select('SELECT username, date FROM users' ,["username", "date"]);
+        echo "<table><thead>
+            <tr>
+                <th>ID</th>
+                <th>Nazwa użytkownika</th>
+                <th>Imie i nazwisko</th>
+                <th>email</th>
+                <th>data zał konta</th>
+                <th></th>
+            </tr>
+        </thead><tbody>";
+        return $dataBase->select('SELECT * FROM users' ,['Id', 'username', 'fullname', 'email', 'date'], "users.php");
     }
 
 }
