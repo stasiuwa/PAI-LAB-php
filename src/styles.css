@@ -25,7 +25,8 @@ links {
  position: relative;
  align-self: flex-start;
  overflow-y: scroll;
-
+ justify-items: center;
+ align-items: center;
  width: 40%;
  height: 99%;
  padding: 2% 0 2% 0;
@@ -42,7 +43,7 @@ links a {
  align-self: center;
  text-align: center;
 
- width: 90%;
+ width: 100%;
  font-size: 150%;
  padding: 3% 1.5% 3% 1.5%;
 
