@@ -196,3 +196,13 @@
             echo "<h4>DODAWANIE DO BAZY NIE POWIODLO SIE</h4>";
         }
     }
+    function showArray($arr): string {
+        $text="";
+        if($arr === null) {
+            return "pusta tablica";
+        }
+        foreach ($arr as $item) {
+            $text .= "$item <br/>";
+        }
+        return $text;
+    }

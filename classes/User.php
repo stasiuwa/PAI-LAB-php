@@ -31,7 +31,7 @@ class User
     function show(): void {
         //$date = $this->getDate()->format('Y-m-d');
         echo <<<_END
-            <div>
+            <div><h6>UŻYTKOWNIK:</h6>
             Nazwa użytkownika: $this->username<br/>
             Hasło: $this->password<br/>
             Imie i nazwisko: $this->fullname<br/>
