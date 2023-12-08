@@ -79,12 +79,13 @@ tbody {
 
 }
 th {
- font-size: 125%;
- color: yellow;
+ font-size: 105%;
+ text-align: left;
+
+ color: goldenrod;
 }
 tr {
 
- font-size: 110%;
 }
 td {
 
