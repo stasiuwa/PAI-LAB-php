@@ -47,7 +47,7 @@ class UserManager
         return $userId;
     }
 
-    static function logout(dataBaseMysqli $dataBase) {
+    static function logout(dataBaseMysqli $dataBase): void {
         session_start();
         $sessionID = session_id();
         if(isset( $_COOKIE[session_name()]) ) setcookie(session_name(),'', time() - 42000, '/');

@@ -31,6 +31,6 @@ if($userID >= 0) {
     _END;
 }
 else {
-    echo "<div>chuj</div>";
-//    header("location:processLogin.php");
+//    echo "<div>chuj</div>";
+    header("location:processLogin.php");
 }
