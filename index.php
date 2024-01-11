@@ -20,6 +20,7 @@
             <a href="sessionTest1.php">SESJA 7.3/4</a>
             <a href="processLogin.php">LOGOWANIE 8.1/2</a>
             <a href="PHPbezpieczenstwo/securityIndex.php">BEZPIEKA 9.1/3</a>
+            <a href="SzablonPHP/index.php">SZABLON PHP LAB 10</a>
     </links>
     </body>
 </html>
